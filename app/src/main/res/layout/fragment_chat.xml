@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_chat_gradient"
+    android:paddingStart="@dimen/s_size"
+    android:paddingEnd="@dimen/s_size">
+
+    <RelativeLayout
+        android:id="@+id/content_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="30dp"
+        android:paddingBottom="@dimen/m_size">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/msg_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/chat_input_wrapper"
+            android:layout_marginBottom="@dimen/m_size" />
+
+        <RelativeLayout
+            android:id="@+id/tools"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/msg_list"
+            android:layout_marginEnd="@dimen/xs_size"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/current_song_action"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_music_note" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/chat_input_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/tools">
+
+            <EditText
+                android:id="@+id/chat_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/xs_size"
+                android:layout_toStartOf="@+id/send_wrapper"
+                android:background="@drawable/bg_input_chat"
+                android:hint="Say hi ~ don&apos;t be shy ~ ≧◡≦"
+                android:inputType="textMultiLine"
+                android:maxLength="255"
+                android:paddingStart="@dimen/m_size"
+                android:paddingTop="17dp"
+                android:paddingEnd="@dimen/m_size"
+                android:paddingBottom="17dp"
+                android:textColor="@drawable/bg_search_text"
+                android:textColorHint="@color/text_desc"
+                android:textSize="@dimen/l_text"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/send_wrapper"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle_accent"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/send"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="4dp"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_send"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/floating"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_favorite"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorAccent"
+                android:text="Sign in to join chat"
+                android:textAllCaps="true"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/s_text"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/floating_area"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/chat_input_wrapper"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/retry"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/l_size"
+            android:background="@color/colorAccent"
+            android:fontFamily="sans-serif"
+            android:text="Retry Loading Chat"
+            android:textAllCaps="false"
+            android:textColor="@color/text_sub_title"
+            android:textSize="@dimen/m_text"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/loading"
+            style="@style/SpinKitView.Large.Circle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/retry"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:animateLayoutChanges="true"
+            android:elevation="10dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:SpinKit_Color="#fff" />
+    </RelativeLayout>
+</RelativeLayout>

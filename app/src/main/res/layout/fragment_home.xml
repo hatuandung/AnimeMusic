@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/main_pager"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dashboard_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/m_size">
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/loading"
+                style="@style/SpinKitView.Large.CubeGrid"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:animateLayoutChanges="true"
+                android:padding="5dp"
+                android:visibility="gone"
+                app:SpinKit_Color="#fff" />
+
+            <RelativeLayout
+                android:id="@+id/content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/banner_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/l_size"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="290dp"
+                        android:background="@drawable/bg_banner_gradient" />
+
+                    <RelativeLayout
+                        android:id="@+id/txt_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/xxxl_size"
+                        android:layout_marginTop="@dimen/xl_size"
+                        android:paddingLeft="@dimen/m_size"
+                        android:paddingRight="@dimen/m_size">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/dashboard_feature"
+                            android:textColor="@color/text_title"
+                            android:textSize="@dimen/xxl_text"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <com.tiagosantos.enchantedviewpager.EnchantedViewPager
+                        android:layout_below="@id/txt_title"
+                        android:id="@+id/viewPager_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/banner_size"
+                        android:layout_marginStart="@dimen/m_size"
+                        android:layout_marginEnd="@dimen/m_size" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/banner_container"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/m_size"
+                    android:paddingRight="@dimen/m_size">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/l_size"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="3dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/xs_size"
+                                android:layout_marginBottom="@dimen/xs_size"
+                                android:background="@color/colorAccent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="@string/dashboard_chart"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/l_text"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/see_all_chart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/xl_size"
+                                android:background="@drawable/bg_round_btn_light"
+                                android:minWidth="0dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:text="@string/dashboard_see_all"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/xs_text" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:id="@+id/top100_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/s_size"
+                            android:paddingStart="-15dp"
+                            android:paddingEnd="-15dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/feature_playlist_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/xl_size"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="3dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/xs_size"
+                                android:layout_marginBottom="@dimen/xs_size"
+                                android:background="@color/colorAccent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="@string/dash_board_feature"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/l_text"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/see_all_feature_playlist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/xl_size"
+                                android:background="@drawable/bg_round_btn_light"
+                                android:minWidth="0dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:text="@string/dashboard_see_all"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/xs_text" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/feature_playlist_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/s_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/l_size"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="3dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/xs_size"
+                                android:layout_marginBottom="@dimen/xs_size"
+                                android:background="@color/colorAccent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+                                android:text="@string/dash_board_playlist"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/l_text"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/see_all_playlist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/xl_size"
+                                android:background="@drawable/bg_round_btn_light"
+                                android:minWidth="0dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:text="@string/dashboard_see_all"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/xs_text" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/anime_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/s_size" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

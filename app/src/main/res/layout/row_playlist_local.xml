@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="7dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/user_playlist_color"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="@dimen/m_radius" />
+
+    <ImageView
+        android:id="@+id/options"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/s_size"
+        android:padding="6dp"
+        android:src="@drawable/ic_more_black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/s_size">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxLines="2"
+            android:paddingStart="@dimen/m_size"
+            android:paddingEnd="@dimen/m_size"
+            android:text="Title"
+            android:textAlignment="center"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/m_text" />
+
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_round_btn_light"
+            android:fontFamily="sans-serif-light"
+            android:paddingStart="@dimen/s_size"
+            android:paddingTop="2dp"
+            android:paddingEnd="@dimen/s_size"
+            android:paddingBottom="2dp"
+            android:text="1 song"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/xs_text" />
+    </RelativeLayout>
+</RelativeLayout>

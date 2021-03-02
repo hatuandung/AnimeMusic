@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:shape="rectangle">
+    <solid android:color="#eaeaea" />
+    <corners
+        android:bottomLeftRadius="@dimen/m_radius"
+        android:bottomRightRadius="@dimen/m_radius"
+        android:topLeftRadius="@dimen/m_radius"
+        android:topRightRadius="@dimen/m_radius" />
+</shape>

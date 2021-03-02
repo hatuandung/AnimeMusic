@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/top_color">
+
+    <RelativeLayout
+        android:id="@+id/blur_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_chat_gradient"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/s_size"
+            android:background="@android:color/transparent"
+            android:paddingBottom="@dimen/m_size"
+            android:theme="@style/ToolbarTheme">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/statusBar"
+                android:layout_marginBottom="@dimen/s_size"
+                android:theme="@style/ToolbarTheme" />
+
+            <RelativeLayout
+                android:id="@+id/search_container"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/app_bar"
+                android:layout_marginStart="@dimen/m_size"
+                android:layout_marginEnd="@dimen/m_size"
+                android:background="@color/search_background">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:theme="@style/SearchViewTheme"
+                    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"
+                    app:queryBackground="@android:color/transparent"
+                    app:submitBackground="@android:color/transparent" />
+            </RelativeLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/item_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/app_bar"
+            android:layout_marginBottom="@dimen/m_size" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/loading"
+            style="@style/SpinKitView.Large.Circle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:animateLayoutChanges="true"
+            android:elevation="10dp"
+            android:padding="5dp"
+            android:visibility="invisible"
+            app:SpinKit_Color="#fff" />
+
+        <TextView
+            android:id="@+id/text_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loading"
+            android:layout_marginTop="@dimen/m_size"
+            android:gravity="center"
+            android:lineSpacingExtra="12dp"
+            android:text="●︿●\10Could not find your songs"
+            android:textColor="@color/text_title"
+            android:textSize="@dimen/l_text" />
+    </RelativeLayout>
+</RelativeLayout>

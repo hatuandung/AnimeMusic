@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@+id/sliding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            app:umanoDragView="@+id/player"
+            app:umanoOverlay="true"
+            app:umanoPanelHeight="0dp"
+            app:umanoParallaxOffset="0dp"
+            app:umanoShadowHeight="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+                <FrameLayout
+                    android:id="@+id/main_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="120dp" />
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/player"
+                layout="@layout/include_player"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" />
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+        <com.example.animemusic.view.MiniSongPlayer
+            android:layout_above="@id/nav_view"
+            android:id="@+id/mini_player"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:animateLayoutChanges="true" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:animateLayoutChanges="true"
+            android:background="@color/colorPrimary"
+            app:itemIconTint="@color/tab_item_foreground"
+            app:itemTextColor="@color/tab_item_foreground"
+            app:labelVisibilityMode="unlabeled"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_nav_menu" />
+    </RelativeLayout>
+</RelativeLayout>

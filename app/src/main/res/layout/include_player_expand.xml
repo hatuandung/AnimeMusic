@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/expand_song_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_song_gradient"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/xl_size"
+        android:paddingTop="@dimen/statusBar"
+        android:paddingRight="@dimen/xl_size"
+        android:paddingBottom="@dimen/m_size">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_size"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/s_size"
+            android:paddingBottom="@dimen/s_size">
+
+            <ImageView
+                android:id="@+id/minimize_icon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/m_size"
+                android:src="@drawable/ic_minimize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/minimize_icon"
+                android:text="Now Playing"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/xl_text"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/add_alarm"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="-5dp"
+                android:paddingStart="@dimen/xs_size"
+                android:paddingTop="@dimen/xs_size"
+                android:paddingEnd="0dp"
+                android:paddingBottom="@dimen/xs_size"
+                android:src="@drawable/ic_add_alarm" />
+        </RelativeLayout>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="35dp"
+            android:id="@+id/expand_art"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:layout_above="@id/control_container"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_song"
+            app:riv_corner_radius="@dimen/m_radius" />
+
+        <LinearLayout
+            android:id="@+id/control_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/m_size">
+
+                <TextView
+                    android:id="@+id/expand_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="@dimen/xs_size"
+                    android:layout_toStartOf="@+id/favorite"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:text="Title"
+                    android:textColor="@color/text_title"
+                    android:textSize="@dimen/l_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/expand_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/expand_title"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="@dimen/l_size"
+                    android:layout_toStartOf="@+id/favorite"
+                    android:gravity="start"
+                    android:text="Description"
+                    android:textColor="@color/text_desc"
+                    android:textSize="@dimen/m_text"
+                    android:visibility="gone" />
+
+                <com.example.animemusic.view.FavoriteButton
+                    android:id="@+id/favorite"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/m_size"
+                    android:layout_marginTop="@dimen/xs_size"
+                    android:src="@drawable/ic_favorite" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/s_size">
+
+                <TextView
+                    android:id="@+id/position_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="00:00"
+                    android:textColor="@color/text_desc"
+                    android:textSize="@dimen/m_text" />
+
+                <com.example.animemusic.view.MediaSeekBar
+                    android:id="@+id/expand_seek_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/duration"
+                    android:layout_toEndOf="@+id/position_time"
+                    android:progressBackgroundTint="#dadada"
+                    android:theme="@style/MySeekBarTheme" />
+
+                <TextView
+                    android:id="@+id/duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="00:00"
+                    android:textColor="@color/text_desc"
+                    android:textSize="@dimen/m_text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/xs_size">
+
+                <com.example.animemusic.view.ShuffleButton
+                    android:id="@+id/shuffle"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_shuffle" />
+
+                <ImageView
+                    android:id="@+id/expand_prev"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/expand_play"
+                    android:padding="@dimen/xs_size"
+                    android:src="@drawable/ic_step_backward" />
+
+                <ImageView
+                    android:id="@+id/expand_play"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/xl_size"
+                    android:layout_marginRight="@dimen/xl_size"
+                    android:animateLayoutChanges="true"
+                    android:src="@drawable/ic_expand_play" />
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/expand_loading"
+                    style="@style/SpinKitView.Large.DoubleBounce"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/xl_size"
+                    android:layout_marginRight="@dimen/xl_size"
+                    android:visibility="invisible"
+                    app:SpinKit_Color="#fff" />
+
+                <ImageView
+                    android:id="@+id/expand_next"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/expand_play"
+                    android:padding="@dimen/xs_size"
+                    android:src="@drawable/ic_step_forward" />
+
+                <com.example.animemusic.view.RepeatButton
+                    android:id="@+id/repeat"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_repeat_off" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/queue"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="-3dp"
+                    android:background="@drawable/button_ripple_bg"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_queue" />
+
+                <ImageView
+                    android:id="@+id/share_song"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="-3dp"
+                    android:background="@drawable/button_ripple_bg"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_share" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

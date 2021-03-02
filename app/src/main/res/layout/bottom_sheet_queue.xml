@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/queue_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/m_size">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/xl_size"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/m_size"
+        android:paddingRight="@dimen/m_size">
+
+        <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/s_size"
+            android:background="@drawable/button_ripple_bg"
+            android:src="@drawable/ic_close_grey" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Current Playing"
+            android:textColor="@color/text_desc"
+            android:textSize="@dimen/xl_text"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/current_song_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="@dimen/s_size"
+        android:layout_marginRight="@dimen/s_size"
+        android:layout_marginBottom="@dimen/xl_size"
+        android:background="@drawable/bg_current_play_gradient"
+        android:padding="7dp"
+        android:visibility="gone">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/current_song_thumb"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="@dimen/s_size"
+            android:src="@drawable/placeholder_song"
+            app:riv_corner_radius="@dimen/m_radius" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/current_song_thumb"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/current_song_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="title"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/m_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/current_song_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/s_text" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/up_next_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/control_container"
+        android:layout_below="@+id/current_song_container"
+        android:paddingLeft="@dimen/m_size"
+        android:paddingRight="@dimen/m_size">
+
+        <TextView
+            android:id="@+id/up_next_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/m_size"
+            android:text="Up Next"
+            android:textColor="@color/text_title"
+            android:textSize="@dimen/l_text"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/current_queue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/up_next_header" />
+    </RelativeLayout>
+
+    <com.example.animemusic.view.MediaSeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/control_container"
+        android:background="@color/song_line"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="1dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:theme="@style/MySeekBarTheme"
+        android:thumb="@null" />
+
+    <RelativeLayout
+        android:id="@+id/control_container"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="@dimen/m_size"
+        android:paddingRight="@dimen/m_size">
+
+        <ImageView
+            android:id="@+id/expand_prev"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/expand_play"
+            android:padding="@dimen/xs_size"
+            android:src="@drawable/ic_step_backward" />
+
+        <ImageView
+            android:id="@+id/expand_play"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/xl_size"
+            android:layout_marginRight="@dimen/xl_size"
+            android:animateLayoutChanges="true"
+            android:src="@drawable/ic_expand_play" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/expand_loading"
+            style="@style/SpinKitView.Large.DoubleBounce"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/xl_size"
+            android:layout_marginRight="@dimen/xl_size"
+            android:visibility="invisible"
+            app:SpinKit_Color="#fff" />
+
+        <ImageView
+            android:id="@+id/expand_next"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/expand_play"
+            android:padding="@dimen/xs_size"
+            android:src="@drawable/ic_step_forward" />
+    </RelativeLayout>
+</RelativeLayout>

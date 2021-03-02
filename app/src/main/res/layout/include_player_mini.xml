@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.example.animemusic.view.MediaSeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/song_line"
+        android:clickable="false"
+        android:focusable="false"
+        android:minHeight="1dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:theme="@style/MySeekBarTheme"
+        android:thumb="@null" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/seek_bar"
+        android:layout_toStartOf="@+id/mini_previous">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/mini_art"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="15dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="7dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_song"
+            app:riv_corner_radius="100dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mini_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:freezesText="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/m_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mini_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/text_desc"
+                android:textSize="@dimen/s_text"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/mini_previous"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@+id/mini_play"
+        android:padding="5dp"
+        android:src="@drawable/ic_step_backward" />
+
+    <ImageView
+        android:id="@+id/mini_play"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/mini_next"
+        android:padding="5dp"
+        android:src="@drawable/ic_mini_play" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/mini_loading"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/mini_next"
+        android:padding="5dp"
+        android:visibility="invisible"
+        app:SpinKit_Color="#fff" />
+
+    <ImageView
+        android:id="@+id/mini_next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="15dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_step_forward" />
+</RelativeLayout>
